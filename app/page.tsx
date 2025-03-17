@@ -1,5 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
+
 
 export default function Home() {
   return (
@@ -36,7 +38,22 @@ export default function Home() {
             <p className="text-xl max-w-xl">
               Clarity. Precision. Objectivity. The principles of Swiss Design have shaped modern visual communication
               since the 1950s.
+
             </p>
+            <div>
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-2 border border-black px-4 sm:px-6 py-2 sm:py-3 hover:bg-black hover:text-white transition-colors mt-4"
+            >
+              Let's collaborate <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-2 border border-black text-white bg-black px-4 sm:px-6 py-2 sm:py-3 hover:bg-white hover:text-black transition-colors mt-4"
+            >
+              See My Work <ArrowRight className="w-4 h-4" />
+            </Link>
+            </div>
           </div>
           <div className="col-span-12 md:col-span-5 flex items-center justify-center">
             <div className="relative w-full aspect-square ">
@@ -44,6 +61,7 @@ export default function Home() {
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-black"></div>
             </div>
           </div>
+          
         </div>
       </section>
 
