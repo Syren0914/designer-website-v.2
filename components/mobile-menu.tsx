@@ -1,11 +1,10 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { usePathname } from "next/navigation" // ✅ Correct in App Router
+import { usePathname } from "next/navigation"
 import HamburgerButton from "./hamburger-button"
 
 interface MenuItem {
@@ -19,28 +18,15 @@ interface MobileMenuProps {
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const currentPath = usePathname() // ✅
+  const currentPath = usePathname()
 
+  const toggleMenu = () => setIsOpen(!isOpen)
+  const closeMenu = () => setIsOpen(false)
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
-
-  const closeMenu = () => {
-    setIsOpen(false)
-  }
-
+  // Close menu on route change
   useEffect(() => {
-    const handleRouteChange = () => {
-      setIsOpen(false)
-    }
-
-    window.addEventListener("routeChange", handleRouteChange)
-
-    return () => {
-      window.removeEventListener("routeChange", handleRouteChange)
-    }
-  }, [])
+    setIsOpen(false)
+  }, [currentPath]) // ✅ Properly closes menu on navigation
 
   return (
     <AnimatePresence>
@@ -61,7 +47,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
             >
               {items.map((item, index) => (
                 <motion.div
-                  key={item.href}
+                key={crypto.randomUUID()}
+                // ✅ Unique key fix
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
@@ -78,8 +65,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
                   </Link>
                   <motion.div
                     className="absolute -bottom-2 left-0 h-0.5 bg-red-600"
-                    animate={{ width: currentPath === item.href ? "100%" : "0%" }}
-                    whileHover={{ width: "100%" }} // ✅ Works because it's a motion element
+                    animate={{ width: currentPath === item.href ? "100%" : "0%" }} // ✅ Fixed animation
                     transition={{ duration: 0.3 }}
                   />
                 </motion.div>
@@ -94,4 +80,3 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
 }
 
 export default MobileMenu
-

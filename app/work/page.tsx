@@ -7,7 +7,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import ScrollIndicator from "@/components/scroll-indicator"
 import SocialIcons from "@/components/social-icons"
 import MobileMenu from "@/components/mobile-menu"
-import { PuzzlePiece } from "@/components/puzzle-animation"
 
 // Project data
 const projects = [
@@ -128,15 +127,23 @@ export default function WorkPage() {
 
       {/* Header */}
       <section className="pt-32 pb-16 px-4 md:px-8 container mx-auto">
-        <PuzzlePiece direction="left">
-          <h1 className="text-6xl md:text-7xl font-bold tracking-tighter mb-6">WORK</h1>
-        </PuzzlePiece>
-        <PuzzlePiece direction="right" delay={0.2}>
-          <p className="text-xl max-w-2xl">
-            A collection of projects that demonstrate our commitment to clarity, precision, and objectivity—the core
-            principles of Swiss Design.
-          </p>
-        </PuzzlePiece>
+        <motion.h1
+          className="text-6xl md:text-7xl font-bold tracking-tighter mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          WORK
+        </motion.h1>
+        <motion.p
+          className="text-xl max-w-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          A collection of projects that demonstrate our commitment to clarity, precision, and objectivity—the core
+          principles of Swiss Design.
+        </motion.p>
       </section>
 
       {/* Filters */}
@@ -171,12 +178,15 @@ export default function WorkPage() {
       <section className="pb-20 px-4 md:px-8 container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <PuzzlePiece
+            <motion.div
               key={project.id}
-              direction={index % 2 === 0 ? "left" : "right"}
-              delay={0.1 + index * 0.1}
               className="group cursor-pointer"
               onClick={() => setSelectedProject(project.id)}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
             >
               <div className="aspect-[4/3] bg-neutral-100 mb-4 overflow-hidden relative">
                 <motion.div
@@ -208,7 +218,7 @@ export default function WorkPage() {
                   <ArrowRight size={16} />
                 </motion.div>
               </div>
-            </PuzzlePiece>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -333,12 +343,16 @@ export default function WorkPage() {
       {/* Footer */}
       <footer className="py-8 px-4 md:px-8 bg-black text-white">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-          <PuzzlePiece direction="left" delay={0.1}>
-            <p className="text-sm mb-4 md:mb-0">© 2025 Swiss Design Studio. All rights reserved.</p>
-          </PuzzlePiece>
-          <PuzzlePiece direction="right" delay={0.2}>
-            <SocialIcons />
-          </PuzzlePiece>
+          <motion.p
+            className="text-sm mb-4 md:mb-0"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            © 2025 Swiss Design Studio. All rights reserved.
+          </motion.p>
+          <SocialIcons />
         </div>
       </footer>
     </main>
