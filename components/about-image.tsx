@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function AboutImage() {
   return (
@@ -21,6 +22,7 @@ export default function AboutImage() {
         viewport={{ once: true }}
       />
 
+
       <motion.div
         className="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 bg-black"
         initial={{ x: 50, y: 50, opacity: 0 }}
@@ -28,6 +30,22 @@ export default function AboutImage() {
         transition={{ duration: 0.7, delay: 0.6 }}
         viewport={{ once: true }}
       />
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 bg-black"
+        initial={{ x: 50, y: 50, opacity: 0 }}
+        whileInView={{ x: 0, y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.6 }}
+        viewport={{ once: true }}
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.0 }}>
+        <Image src={"/side2.jpg"} alt={""} width={600} height={600} className="absolute"></Image>
+
+      </motion.div>
+      
+      
     </div>
   )
 }

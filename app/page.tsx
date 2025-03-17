@@ -7,18 +7,19 @@ import { ArrowRight } from "lucide-react"
 import SocialIcons from "@/components/social-icons"
 import MobileMenu from "@/components/mobile-menu"
 import AboutImage from "@/components/about-image"
+import Image from "next/image"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white ">
       <ScrollIndicator />
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-black">
-        <div className="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 md:px-8 py-4 flex flex-wrap justify-between items-center">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Link href="/" className="text-xl font-bold tracking-tighter">
-              HELVETICA
+              SEDIQ
             </Link>
           </motion.div>
           <div className="hidden md:flex space-x-8">
@@ -61,18 +62,18 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 md:px-8 container mx-auto">
+      <section className="pt-32 pb-20 px-4 md:px-8 container mx-auto ">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-7 mb-8 md:mb-0">
             <motion.h1
-              className="text-8xl md:text-9xl font-bold tracking-tighter leading-none mb-6"
+              className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter leading-none mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              SWISS
+              SAYED SEDIQ
               <br />
-              DESIGN
+              GAWHARI
             </motion.h1>
             <motion.p
               className="text-xl max-w-xl"
@@ -80,8 +81,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Clarity. Precision. Objectivity. The principles of Swiss Design have shaped modern visual communication
-              since the 1950s.
+              Explore the artistic journey of Sediq—where tradition meets digital expression.
             </motion.p>
           </div>
           <motion.div
@@ -90,7 +90,9 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="relative w-full aspect-square bg-red-600">
+            <div className="relative w-full aspect-square ">
+              <Image src="/side.jpg" alt="Sediq" width={600} height={600} className="w-full h-auto" />
+
               <motion.div
                 className="absolute -bottom-4 -right-4 w-24 h-24 bg-black"
                 initial={{ x: 20, y: 20 }}
@@ -221,17 +223,14 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <p className="text-xl mb-6">
-                Swiss Design, also known as International Typographic Style, emerged in Switzerland in the 1950s. It
-                emphasizes cleanliness, readability, and objectivity.
+              Sediq is a visionary artist from Afghanistan, blending traditional influences with modern digital artistry. 
               </p>
               <p className="mb-6">
-                The style is characterized by the use of sans-serif typography (particularly Helvetica), grid systems,
-                asymmetrical layouts, and photography instead of illustrations. Swiss Design pioneers believed that
-                design should be clear, objective, and functional.
+              His work captures emotions, stories, and the cultural depth of his heritage while embracing contemporary techniques. Whether through intricate paintings or digital compositions, each piece reflects his passion for storytelling through art.
               </p>
               <p className="mb-6">
-                Key figures in the movement include Josef Müller-Brockmann, Armin Hofmann, Emil Ruder, and Max Bill.
-                Their work continues to influence graphic design, web design, and visual communication today.
+                {/* Key figures in the movement include Josef Müller-Brockmann, Armin Hofmann, Emil Ruder, and Max Bill.
+                Their work continues to influence graphic design, web design, and visual communication today. */}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
                 <motion.div
@@ -308,7 +307,7 @@ export default function Home() {
                 <p className="flex items-center">
                   <span className="w-24 text-sm uppercase tracking-widest">Email</span>
                   <a href="mailto:hello@swissdesign.com" className="hover:underline">
-                    hello@swissdesign.com
+                    sediq@gmail.com
                   </a>
                 </p>
                 <p className="flex items-center">
@@ -319,7 +318,7 @@ export default function Home() {
                 </p>
                 <p className="flex items-center">
                   <span className="w-24 text-sm uppercase tracking-widest">Location</span>
-                  <span>Zürich, Switzerland</span>
+                  <span>Virginia , USA</span>
                 </p>
               </div>
 
@@ -413,7 +412,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            © 2025 Swiss Design Studio. All rights reserved.
+            © 2025 <Link href={"https://erdene.dev"}>Erdene Batbayar</Link>. All rights reserved.
           </motion.p>
           <SocialIcons />
         </div>
