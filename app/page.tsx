@@ -56,8 +56,7 @@ export default function Home() {
               { label: "Work", href: "/work" },
               { label: "About", href: "#about" },
               { label: "Contact", href: "#contact" },
-            ]}
-          />
+            ]} currentPath={""}          />
         </div>
       </nav>
 
@@ -71,7 +70,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              SAYED SEDIQ
+              SAYED 
+              <br />
+              SEDIQ 
               <br />
               GAWHARI
             </motion.h1>
@@ -81,8 +82,25 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Explore the artistic journey of Sediq—where tradition meets digital expression.
+              Explore Sediq’s artistic journey, where tradition meets digital expression. His work seamlessly blends cultural heritage with modern techniques, crafting visually captivating narratives that bridge the past, present, and future of creativity.
             </motion.p>
+            <motion.div className="mt-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.9 }}>
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-2 border border-black px-4 sm:px-6 py-2 sm:py-3 hover:bg-black hover:text-white transition-colors"
+            >
+              Let&apos;s collaborate <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 border text-white bg-black border-black px-4 sm:px-6 py-2 sm:py-3 hover:bg-white hover:text-black transition-colors"
+            >
+              View Gallery <ArrowRight className="w-4 h-4" />
+            </Link>
+            </motion.div>
           </div>
           <motion.div
             className="col-span-12 md:col-span-5 flex items-center justify-center"
@@ -91,7 +109,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="relative w-full aspect-square ">
-              <Image src="/side.jpg" alt="Sediq" width={600} height={600} className="w-full h-auto" />
+              <Image src="/profile.jpg" alt="Sediq" width={600} height={600} className="w-full h-auto" />
 
               <motion.div
                 className="absolute -bottom-4 -right-4 w-24 h-24 bg-black"
@@ -100,6 +118,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.5 }}
               ></motion.div>
             </div>
+            
           </motion.div>
         </div>
       </section>
@@ -111,6 +130,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Project 1 */}
+
             <motion.div
               className="group"
               initial={{ opacity: 0, y: 30 }}
@@ -118,15 +138,20 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
+              <Link href={"/work"}>
+
               <div className="aspect-square bg-white mb-4 overflow-hidden">
                 <motion.div
                   className="w-full h-full flex items-center justify-center bg-neutral-100 group-hover:bg-red-600 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
+                  <Image src={"/profile.jpg"} alt={""} height={600} width={400} className="absolute  object-cover  opacity-50"></Image>
+                  
                   <span className="text-black text-8xl font-bold">01</span>
                 </motion.div>
               </div>
+              </Link>
               <h3 className="text-xl font-bold mb-2">Typography Project</h3>
               <p className="text-neutral-400">Exploring grid systems and typographic hierarchy</p>
             </motion.div>
@@ -139,15 +164,19 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
             >
+              <Link href={"/work"}>
               <div className="aspect-square bg-white mb-4 overflow-hidden">
                 <motion.div
                   className="w-full h-full flex items-center justify-center bg-neutral-100 group-hover:bg-red-600 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
+                  <Image src={"/IMG_E6075.JPG"} alt={""} height={600} width={400} className="absolute  object-cover  opacity-50"></Image>
+
                   <span className="text-black text-8xl font-bold">02</span>
                 </motion.div>
               </div>
+              </Link>
               <h3 className="text-xl font-bold mb-2">Poster Design</h3>
               <p className="text-neutral-400">Minimalist approach to visual communication</p>
             </motion.div>
@@ -160,15 +189,21 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
+              <Link href={"/work"}>
               <div className="aspect-square bg-white mb-4 overflow-hidden">
                 <motion.div
                   className="w-full h-full flex items-center justify-center bg-neutral-100 group-hover:bg-red-600 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
+                  
+                  <Image src={"/IMG_E6073.JPG"} alt={""} height={600} width={400} className="absolute   object-cover  opacity-50"></Image>
+
                   <span className="text-black text-8xl font-bold">03</span>
+                  
                 </motion.div>
               </div>
+              </Link>
               <h3 className="text-xl font-bold mb-2">Brand Identity</h3>
               <p className="text-neutral-400">Clean, systematic visual language for modern brands</p>
             </motion.div>
@@ -302,7 +337,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="text-6xl font-bold tracking-tighter mb-8">CONTACT</h2>
-              <p className="text-xl mb-8">Interested in working together? Let's discuss your project.</p>
+              <p className="text-xl mb-8">Interested in working together? Let&apos;s discuss your project.</p>
               <div className="space-y-4">
                 <p className="flex items-center">
                   <span className="w-24 text-sm uppercase tracking-widest">Email</span>
@@ -312,8 +347,8 @@ export default function Home() {
                 </p>
                 <p className="flex items-center">
                   <span className="w-24 text-sm uppercase tracking-widest">Phone</span>
-                  <a href="tel:+41123456789" className="hover:underline">
-                    +41 123 456 789
+                  <a href="tel:+15714997308" className="hover:underline">
+                    +1 571 499-7308
                   </a>
                 </p>
                 <p className="flex items-center">

@@ -6,6 +6,7 @@ import { useState } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import ScrollIndicator from "@/components/scroll-indicator"
 import SocialIcons from "@/components/social-icons"
+import Image from "next/image"
 import MobileMenu from "@/components/mobile-menu"
 
 // Project data
@@ -20,6 +21,7 @@ const projects = [
     client: "Cultural Institute",
     tags: ["Typography", "Grid", "Print"],
     featured: true,
+    art: "/IMG_E6064.JPG"
   },
   {
     id: 2,
@@ -31,6 +33,8 @@ const projects = [
     client: "Design Festival",
     tags: ["Poster", "Minimalism", "Exhibition"],
     featured: true,
+    art: "/IMG_E6075.JPG"
+
   },
   {
     id: 3,
@@ -42,6 +46,9 @@ const projects = [
     client: "TechCorp Inc.",
     tags: ["Branding", "Identity", "Guidelines"],
     featured: true,
+    art: "/IMG_E6077.JPG"
+
+  
   },
   {
     id: 4,
@@ -53,6 +60,8 @@ const projects = [
     client: "Design Quarterly",
     tags: ["Editorial", "Magazine", "Layout"],
     featured: false,
+    art: "/IMG_E6067.JPG"
+
   },
   {
     id: 5,
@@ -64,6 +73,8 @@ const projects = [
     client: "Contemporary Art Museum",
     tags: ["Wayfinding", "Signage", "Environmental"],
     featured: false,
+    art: "/IMG_E6069.JPG"
+
   },
   {
     id: 6,
@@ -75,7 +86,140 @@ const projects = [
     client: "Financial Services",
     tags: ["UI/UX", "Web", "Application"],
     featured: false,
+    art: "/IMG_E6073.JPG"
+
   },
+  {
+    id: 7,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6072.JPG"
+
+  },
+  {
+    id: 8,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6078.JPG"
+
+  },
+  {
+    id: 9,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6074.JPG"
+
+  },
+  {
+    id: 10,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6080.JPG"
+
+  },
+  {
+    id: 11,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6081.JPG"
+
+  },
+  {
+    id: 12,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6066.JPG"
+
+  },
+  {
+    id: 13,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6071.JPG"
+
+  },
+  {
+    id: 14,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6079.JPG"
+
+  },
+  {
+    id: 15,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6070.JPG"
+
+  },
+  {
+    id: 16,
+    title: "Digital Interface",
+    category: "Digital",
+    year: "2021",
+    description:
+      "A web application interface designed with Swiss principles. The interface prioritizes content hierarchy, readability, and user experience through a systematic grid layout.",
+    client: "Financial Services",
+    tags: ["UI/UX", "Web", "Application"],
+    featured: false,
+    art: "/IMG_E6076.JPG"
+
+  },
+
 ]
 
 // Filter categories
@@ -96,7 +240,7 @@ export default function WorkPage() {
         <div className="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Link href="/" className="text-xl font-bold tracking-tighter">
-              HELVETICA
+              SEDIQ
             </Link>
           </motion.div>
           <div className="hidden md:flex space-x-8">
@@ -141,8 +285,7 @@ export default function WorkPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          A collection of projects that demonstrate our commitment to clarity, precision, and objectivity—the core
-          principles of Swiss Design.
+          Each piece in this gallery is a reflection of Sediq’s artistic journey, blending Afghan heritage with modern techniques. From hand-painted masterpieces to digital compositions, his work tells stories that resonate beyond borders.
         </motion.p>
       </section>
 
@@ -195,6 +338,7 @@ export default function WorkPage() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <span className="text-black text-6xl font-bold group-hover:text-white transition-colors">
+                    <Image src={project.art} alt={""} height={600} width={400} className="absolute inset-0 w-full h-full object-cover opacity-50 -z-0"></Image>
                     {String(project.id).padStart(2, "0")}
                   </span>
                   {project.featured && (
@@ -262,7 +406,8 @@ export default function WorkPage() {
                   </div>
 
                   <div className="aspect-video bg-neutral-100 mb-8 flex items-center justify-center">
-                    <span className="text-black text-8xl font-bold">{String(project.id).padStart(2, "0")}</span>
+                  <Image src={project.art} alt={""} height={600} width={400} className="    object-cover  "></Image>
+                    {/* <span className="text-black text-8xl font-bold">{String(project.id).padStart(2, "0")}</span> */}
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -350,7 +495,7 @@ export default function WorkPage() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            © 2025 Swiss Design Studio. All rights reserved.
+            © 2025 <Link href={"https://erdene.dev"}>Erdene Batbayar</Link>. All rights reserved.
           </motion.p>
           <SocialIcons />
         </div>

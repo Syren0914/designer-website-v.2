@@ -41,7 +41,7 @@ export default function AboutImage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1.0 }}>
-        <Image src={"/side2.jpg"} alt={""} width={600} height={600} className="absolute"></Image>
+        <Image src={"/IMG_E6077.JPG"} alt={""} width={500} height={600} className="absolute items-center h-full w-full"></Image>
 
       </motion.div>
       

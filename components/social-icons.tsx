@@ -49,7 +49,7 @@ const SocialIcon = ({ platform, url, size = 18, showLabel = false }: SocialIconP
 
 export default function SocialIcons({ showLabels = true, iconSize = 18 }) {
   const socialPlatforms = [
-    { platform: "Instagram", url: "#" },
+    { platform: "Instagram", url: "https://www.instagram.com/ssediqg/" },
     { platform: "Behance", url: "#" },
     { platform: "LinkedIn", url: "#" },
   ]

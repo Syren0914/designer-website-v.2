@@ -14,6 +14,7 @@ interface MenuItem {
 
 interface MobileMenuProps {
   items: MenuItem[]
+  currentPath: string
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
@@ -26,7 +27,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
   // Close menu on route change
   useEffect(() => {
     setIsOpen(false)
-  }, [currentPath]) // ✅ Properly closes menu on navigation
+  }, [currentPath])
 
   return (
     <AnimatePresence>
@@ -47,8 +48,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
             >
               {items.map((item, index) => (
                 <motion.div
-                key={crypto.randomUUID()}
-                // ✅ Unique key fix
+                  key={`${item.href}-${index}`} // Use a combination of href and index to guarantee uniqueness
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
@@ -65,7 +65,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ items }) => {
                   </Link>
                   <motion.div
                     className="absolute -bottom-2 left-0 h-0.5 bg-red-600"
-                    animate={{ width: currentPath === item.href ? "100%" : "0%" }} // ✅ Fixed animation
+                    animate={{ width: currentPath === item.href ? "100%" : "0%" }}
                     transition={{ duration: 0.3 }}
                   />
                 </motion.div>
