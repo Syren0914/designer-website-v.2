@@ -109,7 +109,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="relative w-full aspect-square ">
-              <Image src="/profile.jpg" alt="Sediq" width={600} height={600} className="w-full h-auto" />
+              <Image src="/profile.jpg" alt="Sediq" width={500} height={500} className="w-full h-auto -rotate-90 mt-4" />
 
               <motion.div
                 className="absolute -bottom-4 -right-4 w-24 h-24 bg-black"
@@ -342,7 +342,7 @@ export default function Home() {
                 <p className="flex items-center">
                   <span className="w-24 text-sm uppercase tracking-widest">Email</span>
                   <a href="mailto:hello@swissdesign.com" className="hover:underline">
-                    sediq@gmail.com
+                    sediqs@gmail.com
                   </a>
                 </p>
                 <p className="flex items-center">
